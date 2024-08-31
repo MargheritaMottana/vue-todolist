@@ -30,28 +30,41 @@
 
             <!-- shadow-lg p-3 mb-5 rounded-->
 
-            <div class="card" style="width: 20rem;">
+            <div class="card" style="width: 25rem;">
 
                 <!-- sezione titolo e descrizione -->
                 <section class="card-body">
+
                     <!-- titolo -->
                     <h3 class="card-title"> TO DO LIST </h3>
 
                     <!-- tag task -->
-                    <p class="myBadge">TASKS</p>
+                    <p class="myBadge"> TASKS </p>
 
-                    <!-- solo se non ci sono task -->
-                    <p class="card-text">Inserisci le tue tasks...</p>
-                    <!-- solo se ci sono task -->
-                    <p class="card-text">Le tue tasks sono:</p>
+                    <!-- testo mostrato solo se non ci sono task -->
+                    <div v-if="todos.length == 0">
+                        <p class="card-text">Inserisci le tue tasks...</p>
+                    </div>
+
+                    <!-- testo mostrato solo se ci sono task -->
+                    <div v-else>
+                        <p class="card-text">Le tue tasks sono:</p>
+                    </div>
+
                 </section>
 
                 <!-- lista attività -->
                 <ul class="list-group list-group-flush">
 
-                    <li class="list-group-item">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        An item
+                    <!-- v-for, si aggiunge l'indice (chiamato così per comodità),
+                     per portarlo dentro una funzione che mi servirà (in questo caso), ad eliminare l'elemento -->
+                    <li class="list-group-item" v-for="(todo, indice) in todos">
+
+                        <!-- check per rimuovere todo -->
+                        <button type="button" class="btn btn-sm" @click="deleteTodo(indice)"> x </button>
+
+                        <!-- todo -->
+                        {{todo.text}}
                     </li>
 
                 </ul>
@@ -63,12 +76,21 @@
 
                     <!-- form per nuova task -->
                     <form class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" placeholder="Oggi devo fare...">
+                        <input type="text" class="form-control" placeholder="Oggi devo fare..." v-model="inputTodo">
 
-                        <button type="button" class="btn">Invia</button>
+                        <button type="button" class="btn" @click="createTodo()">Invia</button>
                     </form>
 
+                    <!-- bottone per svuotale la lista, compare solo se si sono elementi nell'array -->
+                    <div v-if="todos.length > 0">
+                        <button type="button" class="btn btn-sm" @click="todos = []">
+                            Elimina tutte le tasks
+                        </button>
+                    </div>
+                    <div v-else></div>
+
                 </section>
+
             </div>
         </div>
 

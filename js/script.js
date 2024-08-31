@@ -18,14 +18,35 @@ createApp({
 
     data() {
         return {
-            todos: {
-                text: "Finire l'esercizio",
-                done: "true"
-            }
+            todos: [
+                {
+                    text: "Finire l'esercizio",
+                    done: true,
+                },
+                {
+                    text: "Preferibilmente senza piangere",
+                    done: true,
+                },
+                {
+                    text: "Cheering up!",
+                    done: true,
+                },
+            ],
+            inputTodo: ""
         }
     },
 
-    method() {
+    methods: {
+        deleteTodo(i) {
+            /* 
+            "splice" permette di eliminare un elemento. 
+            Nelle parentesi vuole l'indice dell'elemento da eliminare, quanti elementi eliminare a partire dall'indice.
+            */
+            this.todos.splice(i, 1);
+        },
+        createTodo() {
+            this.todos.push(this.inputTodo)
+        }
+    },
 
-    }
 }).mount('#app')
