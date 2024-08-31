@@ -1,7 +1,43 @@
-/* * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+    font-family: "DM Mono", monospace;
+}
 
-    font-family: sans-serif;
-} */
+main {
+    padding: 50px;
+    width: 100%;
+    height: 100vh;
+    background-color: #FFB08E;
+}
+
+#app {
+    border-radius: 20px;
+    padding: 50px;
+    margin: 0 auto;
+    width: 80%;
+    background-image: url('https://img.freepik.com/vettori-gratuito/disegno-ad-acquerello-di-frutta-e-motivi-floreali_23-2149485614.jpg?t=st=1725109230~exp=1725112830~hmac=1e66512d744b18f05dcb7d83ddd0a15d264d00cc295a9e8a910c870cb25ecc23&w=826');
+    background-size: cover;
+}
+
+.card {
+    margin: 0 auto;
+    box-shadow: #FF6146 10px;
+}
+
+.myBadge {
+    width: 140px;
+    padding: 3px 10px;
+    display: inline-block;
+    color: rgb(255, 232, 232);
+    background-color: #FF6146;
+    border-radius: none;
+}
+
+.btn {
+    color: #FF6146;
+    border-color: #FF6146;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #FF6146;
+}
