@@ -60,11 +60,13 @@
                      per portarlo dentro una funzione che mi servirà (in questo caso), ad eliminare l'elemento -->
                     <li class="list-group-item" v-for="(todo, indice) in todos">
 
-                        <!-- check per rimuovere todo -->
+                        <!-- bottone per rimuovere todo -->
                         <button type="button" class="btn btn-sm" @click="deleteTodo(indice)"> x </button>
 
                         <!-- todo -->
-                        {{todo.text}}
+                        <span class="d-inline-block ms-3">
+                            {{todo.text}}
+                        </span>
                     </li>
 
                 </ul>
@@ -75,11 +77,12 @@
                     <p class="myBadge">TASKS TO ADD</p>
 
                     <!-- form per nuova task -->
-                    <form class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" placeholder="Oggi devo fare..." v-model="inputTodo">
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" placeholder="Oggi devo fare..." v-model="inputTodo"
+                            @keyup.enter="createTodo()">
 
                         <button type="button" class="btn" @click="createTodo()">Invia</button>
-                    </form>
+                    </div>
 
                     <!-- bottone per svuotale la lista, compare solo se si sono elementi nell'array -->
                     <div v-if="todos.length > 0">

@@ -41,3 +41,7 @@ main {
     color: white;
     background-color: #FF6146;
 }
+
+.done {
+    text-decoration: line-through;
+}

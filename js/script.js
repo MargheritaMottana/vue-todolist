@@ -3,13 +3,6 @@ MILESTONE 1
 Stampare all'interno di una lista HTML un item per ogni todo.
 Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
 
-MILESTONE 2
-Visualizzare a fianco ad ogni item ha una "x": cliccando su di essa, il todo viene rimosso dalla lista.
-
-MILESTONE 3
-Predisporre un campo di input testuale e un pulsante "aggiungi": 
-cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, 
-che quindi viene aggiunto alla lista dei todo esistenti.
 */
 
 const { createApp } = Vue
@@ -21,15 +14,15 @@ createApp({
             todos: [
                 {
                     text: "Finire l'esercizio",
-                    done: true,
+                    done: false,
                 },
                 {
                     text: "Preferibilmente senza piangere",
-                    done: true,
+                    done: false,
                 },
                 {
                     text: "Cheering up!",
-                    done: true,
+                    done: false,
                 },
             ],
             inputTodo: ""
@@ -45,8 +38,13 @@ createApp({
             this.todos.splice(i, 1);
         },
         createTodo() {
-            this.todos.push(this.inputTodo)
-        }
+            // pusho la nuova task se l'input dell'utente non è vuoto.
+            // elimino la possibilità di aggiungere degli spazi
+            if (this.inputTodo.trim() != '') {
+                this.todos.push(this.inputTodo);
+                this.inputTodo = '';
+            };
+        },
     },
 
 }).mount('#app')
