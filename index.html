@@ -64,15 +64,21 @@
                         <button type="button" class="btn btn-sm" @click="deleteTodo(indice)"> x </button>
 
                         <!-- todo -->
-                        <span class="d-inline-block ms-3">
+
+                        <!-- Se clicclo sulla todo, la sua proprietà "done" cambia nel suo opposto (ogni volta che clicco) -->
+                        <!-- operatore ternario per aggiungere la classe (grazie al fatto che il click cambia "done"): se done è true, allora linea, altrimenti no -->
+                        <span class="d-inline-block ms-3" @click="todo.done = !todo.done"
+                            :class="todo.done == true ? 'done' : '' ">
+
                             {{todo.text}}
+
                         </span>
                     </li>
 
                 </ul>
 
                 <!-- sezione nuova task -->
-                <section class="card-body">
+                <section class=" card-body">
                     <!-- badge -->
                     <p class="myBadge">TASKS TO ADD</p>
 
