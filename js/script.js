@@ -41,7 +41,9 @@ createApp({
             // pusho la nuova task se l'input dell'utente non è vuoto.
             // elimino la possibilità di aggiungere degli spazi
             if (this.inputTodo.trim() != '') {
-                this.todos.push(this.inputTodo);
+
+                // per pushare un input in un oggetto aggiungere le graffe e scrivere la sintassi del contenuto dell'oggetto
+                this.todos.push({ text: this.inputTodo });
                 this.inputTodo = '';
             };
         },
